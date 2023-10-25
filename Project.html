@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Consumption Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            background-color: #0074D9;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #data-table {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0074D9;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Consumption Data</h1>
+    <div id="data-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Device ID</th>
+                    <th>Timestamp</th>
+                    <th>Consumption (Liters)</th>
+                </tr>
+            </thead>
+            <tbody id="data-body">
+                <!-- Data will be inserted here dynamically using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Simulated IoT data (replace with actual data retrieval code)
+        const IoTData = [
+            { deviceID: 'Device001', timestamp: '2023-10-25 08:00:00', consumption: 100 },
+            { deviceID: 'Device002', timestamp: '2023-10-25 08:15:00', consumption: 80 },
+            // Add more data entries
+        ];
+
+        // Function to populate the table with IoT data
+        function populateDataTable() {
+            const tableBody = document.getElementById('data-body');
+            IoTData.forEach((data) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = <td>${data.deviceID}</td><td>${data.timestamp}</td><td>${data.consumption}</td>;
+            });
+        }
+
+        // Call the function to populate the table
+        populateDataTable();
+    </script>
+</body>
+</html>
